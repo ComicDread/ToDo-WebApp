@@ -1,0 +1,302 @@
+body{
+    background-color: #17181f;
+    color: #ddd;
+    
+}
+
+*{
+    box-sizing: border-box;
+}
+
+main {
+  max-width: 300px;
+  margin: 80px auto 20px; 
+}
+
+div.taskContainer {
+  max-height: 50vh; 
+  padding-top: 5px; 
+  padding-right:2px;
+  overflow-y:scroll;
+}
+
+div.taskContainer::-webkit-scrollbar {
+  width: 5px;
+  
+}
+
+div.taskContainer::-webkit-scrollbar-thumb {
+  background-color: #61DAFB;
+  border-radius: 5px;
+}
+
+div.taskContainer::-webkit-scrollbar-track {
+  background-color: #30313D;
+  border-radius: 5px;
+
+}
+
+form{
+    border: 3px solid #30313D;
+    border-radius: 10px;
+    padding: 5px;
+    display:flex;
+}
+
+form input[type="text"] {
+    background: none;
+    color: #fff;
+    border:0;
+    padding: 0  8px;
+    display: block;
+    width: 100%;
+}
+
+form button{
+    background-color: #61DAFB;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+div.task{
+    background-color: #30313D;
+    border-radius: 10px;
+    padding: 5px 9px;
+    margin-top: 5px; 
+    display: flex;
+    align-items: center;
+    transition: opacity .3s linear;
+
+}
+
+div.task.done{
+    opacity: 0.3;
+    position: relative;
+
+}
+
+div.task svg{
+    height: 20px;
+    margin-right: 6px;
+    fill: #61DAFB
+ 
+}
+
+div.task span{
+    position:relative;
+
+}
+
+div.taskName, div.task form{
+    flex-grow:1;
+    
+}
+
+div.task span:before{
+    content:'';
+    display:block;
+    width: 0;
+    height: 1px;
+    background-color: #ddd;
+    position:absolute;
+    top: 10px;
+    transition: width .1s linear;
+
+
+}
+
+div.task.done span:before{
+    width: 100%;
+}
+ 
+h1,h2{
+    text-align: center;
+
+}
+
+div.container {
+    display: flex;
+  }
+  
+p.user {
+    margin-left: 1em;
+    font-weight: bold;
+
+}
+
+div.checkbox{
+    display:flex;
+    align-items:center;
+    
+}
+
+button.trash{
+    background: none;
+    border: none;
+    display: flex;
+    cursor: pointer;
+}
+
+button.trash svg{
+    fill: #aaa;    
+    height: 14px;
+}
+
+div.task input{
+    border: 2px solid #555;
+    border-radius:5px;
+    padding: 2px 4px;
+}
+
+img.UserImg{
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+}
+
+ul{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+a {
+  color:#aaa;
+  text-decoration: none;;
+}
+
+a.iconButton{
+  color: var(--text-color);
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+a.iconButton:hover{
+  filter:brightness(1.2);
+  
+}
+
+img.UserImg{
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+}
+
+img.UserImg:hover{
+  transition: filter 300ms;
+  filter:brightness(1.2);
+}
+
+
+nav.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.367);
+    border-bottom:var(--border);
+    
+  }
+  
+ul.nav-nav{
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+li.nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown {
+  position: absolute;
+  top: 56px;
+  width: 300px;
+  transform: translateX(-51%);
+  background-color: #484a4d;
+  border-radius: var(--border-radius);
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+  height: 1%;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  padding: 0.5rem;
+}
+
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+.menu-item:hover {
+  background-color: #404346;
+}
+
+.icon-right {
+  margin-left: auto;
+}
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+  opacity: 0;
+}
+
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: transform var(--speed) cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              opacity var(--speed) ease;
+}
+
+.menu-primary-exit {
+  position: absolute;
+}
+
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  opacity: 0;
+  transition: transform var(--speed) cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              opacity var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+  opacity: 0;
+}
+
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: transform var(--speed) cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              opacity var(--speed) ease;
+}
+
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  opacity: 0;
+  transition: transform var(--speed) cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              opacity var(--speed) ease;
+}
